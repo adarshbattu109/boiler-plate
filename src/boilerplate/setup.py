@@ -3,6 +3,8 @@
 import os
 from pathlib import Path
 
+from boilerplate.constants import FILE_CONTENT_DICT
+
 
 def create_directory(path: Path) -> None:
     """_summary_
@@ -14,7 +16,7 @@ def create_directory(path: Path) -> None:
     path.mkdir(parents=True, exist_ok=True)
 
 
-def create_file(path: Path) -> None:
+def touch_file(path: Path) -> None:
     """_summary_
 
     Args:
@@ -22,6 +24,22 @@ def create_file(path: Path) -> None:
     """
     print(f"Creating file {path}")
     path.touch()
+
+
+def create_repo_files(file_type: str, file: Path, substitution_dict: dict[str, str]) -> None:
+    """Method to copy over file from local store to new project with content substitution
+
+    Args:
+        file_type (str): Dict key to derive the file to read for substitution
+        file (Path): Target path to write the file to
+    """
+    content = FILE_CONTENT_DICT[file_type]
+    for key, value in substitution_dict.items():
+        content = content.replace(str(key), str(value))
+
+    print(f"Creating file {file}")
+    with open(file, "w", encoding="utf8") as filehandle:
+        filehandle.write(content)
 
 
 def create_vitual_env_with_packages(venv_path: Path, packages: list[str]) -> None:
