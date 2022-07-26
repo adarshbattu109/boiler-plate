@@ -148,7 +148,7 @@ if __name__ == "__main__":
 SETUP_CFG = r"""
 [metadata]
 name = {APP_NAME}
-version = 0.0.1
+version = 1.0
 author = {AUTHOR_NAME}
 author_email = {AUTHOR_EMAIL}
 url = <Enter Project URL Here>
