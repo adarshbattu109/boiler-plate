@@ -3,7 +3,7 @@
 from pathlib import Path
 from boilerplate.constants import FILE_CONTENT_DICT, REQUIREMENTS_SEQUENCE
 from boilerplate.constants import requirement_steps, packages
-from boilerplate.setup import create_directory, touch_file, create_repo_files, create_vitual_env_with_packages
+from boilerplate.helper import create_directory, touch_file, create_repo_files, create_vitual_env_with_packages
 
 
 def gather_requirements() -> dict[str, str | bool]:
