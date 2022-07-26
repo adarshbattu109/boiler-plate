@@ -53,7 +53,7 @@ def create_vitual_env_with_packages(venv_path: Path, packages: list[str]) -> Non
     concat_string = "&&" if os.name == "nt" else ";"
     activate_venv = str(Path(".", "venv", "Scripts", "activate"))
     start_cmd = [f"cd {venv_path}", 'echo "Starting Virtual Environment Setup"']
-    create_virtual_env = ["pip install -U virtualenv", "python -m virtualenv venv", activate_venv]
+    create_virtual_env = ["python -m pip install --upgrade pip", "pip install -U virtualenv", "python -m virtualenv venv", activate_venv]
     install_project = ["pip install -e ."]
 
     final_command.extend(start_cmd)
