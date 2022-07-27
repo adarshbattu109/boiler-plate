@@ -147,15 +147,15 @@ if __name__ == "__main__":
 
 SETUP_CFG = r"""
 [metadata]
-name = {APP_NAME}
-version = 1.0
-author = {AUTHOR_NAME}
-author_email = {AUTHOR_EMAIL}
+name = APP_NAME
+version = 0.0.1
+author = AUTHOR_NAME
+author_email = AUTHOR_EMAIL
 url = <Enter Project URL Here>
 description = <Enter Project Description Here>
 long_description = file: README.md
 long_description_content_type = text/markdown
-keywords = {APP_NAME}, setuptools
+keywords = APP_NAME, setuptools
 #license = BSD 3-Clause License
 classifiers =
 	Framework :: Custom
@@ -206,13 +206,13 @@ statistics = True
 ignore_missing_imports = True
 
 [tool:pytest]
-addopts = -v --cov={APP_NAME} --cov-report=html
+addopts = -v --cov=APP_NAME --cov-report=html
 filterwarnings = ignore::DeprecationWarning"""
 
 README_MD = r"""
 ## Authors
 
-- [@{AUTHOR_NAME}](https://github.com/)
+- [@AUTHOR_NAME](https://github.com/)
 
 
 ## Installation
@@ -235,7 +235,7 @@ Create a Virtual Environment
 Install the Application
 
 ```bash
-  # Install the {APP_NAME} app
+  # Install the APP_NAME app
   pip install -e .
 ```
 
