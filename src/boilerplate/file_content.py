@@ -177,7 +177,7 @@ where=src
 
 [options.entry_points]
 console_scripts = 
-    boilerplate = boilerplate:main
+    APP_NAME = APP_NAME:main
 
 [options.extras_require]
 dev = 
