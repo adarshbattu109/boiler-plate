@@ -25,16 +25,16 @@ packages: dict[str, list] = {
 
 
 requirement_steps: dict[str, tuple[Callable, str]] = {
-    "BASE_DIR": (get_location, "Provide the Path of the directory where the project Root folder and other items will be placed : \n"),
-    "ROOT_DIR_NAME": (get_input, "Provide the Project Root folder name ? : \n"),
-    "AUTHOR_NAME": (get_input, "User Name ? : \n"),
-    "AUTHOR_EMAIL": (get_input, "Email ID ? : \n"),
-    "APP_NAME": (get_input, "Name of the Project ? : \n"),
-    "CREATE_ENV": (get_confirmation, "Create Virtual Environment ? : \n"),
-    "SCA": (get_confirmation, "Install Static Code Analysis Tools ? : \n"),
-    "LINTER": (get_confirmation, "Install 'PyLint' ? : \n"),
-    "FORMATTER": (get_confirmation, "Install 'Python Code Formatter' ? : \n"),
-    "UNIT_TEST": (get_confirmation, "Install Unit Test Tools ? : \n"),
+    "BASE_DIR": (get_location, "Provide the Path of the directory where the project Root folder and other items will be placed : "),
+    "ROOT_DIR_NAME": (get_input, "Provide the Project Root folder name ? : "),
+    "AUTHOR_NAME": (get_input, "User Name ? : "),
+    "AUTHOR_EMAIL": (get_input, "Email ID ? : "),
+    "APP_NAME": (get_input, "Name of the Project ? : "),
+    "CREATE_ENV": (get_confirmation, "Create Virtual Environment ? : "),
+    "SCA": (get_confirmation, "Install Static Code Analysis Tools ? : "),
+    "LINTER": (get_confirmation, "Install 'PyLint' ? : "),
+    "FORMATTER": (get_confirmation, "Install 'Python Code Formatter' ? : "),
+    "UNIT_TEST": (get_confirmation, "Install Unit Test Tools ? : "),
 }
 
 # execution_steps: dict[str, tuple[Callable, str | Path | list[str]]] = {
