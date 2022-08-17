@@ -6,18 +6,17 @@ from boilerplate.constants import requirement_steps, packages
 from boilerplate.helper import create_directory, touch_file, create_repo_files, create_vitual_env_with_packages
 
 
-def gather_requirements() -> dict[str, str | bool]:
+def gather_requirements() -> dict[str, dict | bool]:
     """Method to gather user requirements for setting up a new project"""
     user_inputs: dict = {}
     for requirement in REQUIREMENTS_SEQUENCE:
-        function, message = requirement_steps[requirement]
-        user_inputs[requirement] = function(message)
+        function, fucntion_args = requirement_steps[requirement]
+        user_inputs[requirement] = function(**fucntion_args)
     return user_inputs
 
 
 def execute_steps(user_inputs: dict[str, str | bool]) -> None:
     """Since the user input in captured in a structured way, each item in the list can be used to execute the needful steps"""
-    # todo: Develop robust mechanism to deal with sequence change
 
     directory_paths, file_paths, package_list = [], [], []
 
@@ -27,6 +26,7 @@ def execute_steps(user_inputs: dict[str, str | bool]) -> None:
     directory_paths.append(Path(main_path, "src"))
     directory_paths.append(Path(main_path, "test"))
     directory_paths.append(Path(main_path, "src", f"{app_name}"))
+
     # Create Directories
     for directory_path in directory_paths:
         create_directory(path=directory_path)
@@ -51,12 +51,15 @@ def execute_steps(user_inputs: dict[str, str | bool]) -> None:
 
     package_list = []
     if user_inputs["SCA"]:
-        package_list.extend(packages["SCA"])
+        package_list.extend(user_inputs["SCA"])
     if user_inputs["LINTER"]:
         package_list.extend(packages["LINTER"])
     if user_inputs["FORMATTER"]:
-        package_list.extend(packages["FORMATTER"])
+        package_list.extend([user_inputs["FORMATTER"]])
     if user_inputs["UNIT_TEST"]:
         package_list.extend(packages["UNIT_TEST"])
 
-    create_vitual_env_with_packages(venv_path=main_path, packages=package_list)
+    return_state = create_vitual_env_with_packages(venv_path=main_path, packages=package_list)
+
+    if not return_state:
+        print("Installtion Complete.\nHappy Coding!!")

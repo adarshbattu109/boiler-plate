@@ -42,17 +42,20 @@ def create_repo_files(file_type: str, file: Path, substitution_dict: dict[str, s
         filehandle.write(content)
 
 
-def create_vitual_env_with_packages(venv_path: Path, packages: list[str]) -> None:
-    """_summary_
+def create_vitual_env_with_packages(venv_path: Path, packages: list[str]) -> int:
+    """Method to create Virtual Environment and install users specified packages
 
     Args:
         packages (list[str]): List of Packages to be installed
+
+    Returns:
+        int: Exit state of the command executed
     """
 
     final_command = []
     concat_string = "&&" if os.name == "nt" else ";"
-    activate_venv = str(Path(".", "venv", "Scripts", "activate"))
     start_cmd = [f"cd {venv_path}", 'echo "Starting Virtual Environment Setup"']
+    activate_venv = str(Path(".", "venv", "Scripts", "activate"))
     create_virtual_env = ["python -m pip install --upgrade pip", "pip install -U virtualenv", "python -m virtualenv venv", activate_venv]
     install_project = ["pip install -e ."]
 
@@ -65,4 +68,4 @@ def create_vitual_env_with_packages(venv_path: Path, packages: list[str]) -> Non
     final_command.extend(install_project)
 
     final = f"{concat_string}".join(final_command)
-    os.system(final)
+    return os.system(final)
