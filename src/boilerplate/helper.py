@@ -7,22 +7,22 @@ from boilerplate.constants import FILE_CONTENT_DICT
 
 
 def create_directory(path: Path) -> None:
-    """_summary_
+    """Method to create a directory for the provided path inclusive of the directory name
 
     Args:
-        path (Path): _description_
+        path (Path): Path of the directory inclusive of the directory name
     """
-    print(f"Creating Directory {path}")
+    print(f"Creating Directory 📂 {path}")
     path.mkdir(parents=True, exist_ok=True)
 
 
 def touch_file(path: Path) -> None:
-    """_summary_
+    """Method to create a file for the provided path inclusive of the file name
 
     Args:
-        path (Path): _description_
+        path (Path): Path of the file inclusive of the file name
     """
-    print(f"Creating file {path}")
+    print(f"Creating file 📃 {path}")
     path.touch()
 
 
@@ -37,7 +37,7 @@ def create_repo_files(file_type: str, file: Path, substitution_dict: dict[str, s
     for key, value in substitution_dict.items():
         content = content.replace(str(key), str(value))
 
-    print(f"Creating file {file}")
+    print(f"Creating file 📃 {file}")
     with open(file, "w", encoding="utf8") as filehandle:
         filehandle.write(content)
 
@@ -46,15 +46,16 @@ def create_vitual_env_with_packages(venv_path: Path, packages: list[str]) -> int
     """Method to create Virtual Environment and install users specified packages
 
     Args:
-        packages (list[str]): List of Packages to be installed
+        venv_path (Path): Path to where the virtual environment is to be set up
+        packages (list[str]): List of packages to be installed
 
     Returns:
-        int: Exit state of the command executed
+        int: Return the state of the process, 0 for success, non-zero for fail
     """
 
     final_command = []
     concat_string = "&&" if os.name == "nt" else ";"
-    start_cmd = [f"cd {venv_path}", 'echo "Starting Virtual Environment Setup"']
+    start_cmd = [f"cd {venv_path}", "echo 👟 Starting Virtual Environment Setup"]
     activate_venv = str(Path(".", "venv", "Scripts", "activate"))
     create_virtual_env = ["python -m pip install --upgrade pip", "pip install -U virtualenv", "python -m virtualenv venv", activate_venv]
     install_project = ["pip install -e ."]

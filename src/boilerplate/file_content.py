@@ -133,12 +133,16 @@ dmypy.json
 """
 
 PYPROJECT_TOML = r"""
+# This file is created using `boilerplate`
+
 [build-system]
 requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 """
 
 SETUP_PY = r"""
+# This file is created using `boilerplate`
+
 from setuptools import setup
 
 if __name__ == "__main__":
@@ -146,6 +150,7 @@ if __name__ == "__main__":
 """
 
 SETUP_CFG = r"""
+# This file is created using `boilerplate`
 [metadata]
 name = APP_NAME
 version = 0.0.1
@@ -270,3 +275,13 @@ To run the tests, refer the following
   ```bash
   vulture src test
   ```"""
+
+MAIN_INIT_PY = r"""
+# This file is created using `boilerplate`
+
+def main() -> None:
+    print("If you see this message, you are good to go!!")
+
+if __name__ == '__main__':
+    main()
+"""
