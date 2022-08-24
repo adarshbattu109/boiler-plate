@@ -163,7 +163,7 @@ long_description_content_type = text/markdown
 keywords = APP_NAME, setuptools
 #license = BSD 3-Clause License
 classifiers =
-	Framework :: Custom
+    Framework :: Custom
     #License :: BSD License
     Programming Language :: Python :: 3
 
@@ -181,24 +181,24 @@ install_requires =
 where=src
 
 [options.entry_points]
-console_scripts = 
+console_scripts =
     APP_NAME = APP_NAME:main
 
 [options.extras_require]
-dev = 
+dev =
     black
     flake8
-	pylint
+    pylint
     vulture
-	virtualenv
-test = 
-	pytest
-	mypy
-	flake8
-	coverage
-	pytest-cov
-	pylint
-	black
+    virtualenv
+test =
+    pytest
+    mypy
+    flake8
+    coverage
+    pytest-cov
+    pylint
+    black
 
 [flake8]
 exclude = .tox,*.egg,build,__pycache__,htmlcov,venv
@@ -236,7 +236,7 @@ Create a Virtual Environment
   # Activate the Virtual Environment
   venv\Scripts\activate
 ```
-    
+
 Install the Application
 
 ```bash
@@ -283,5 +283,4 @@ def main() -> None:
     print("If you see this message, you are good to go!!")
 
 if __name__ == '__main__':
-    main()
-"""
+    main()"""

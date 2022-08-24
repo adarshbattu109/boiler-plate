@@ -35,9 +35,9 @@ def execute_steps(user_inputs: dict[str, str]) -> None:
 
     file_paths: list[Path] = []
     # Create Files
-    file_paths.append(Path(main_path, "src", "__init__.py"))
     file_paths.append(Path(main_path, "src", f"{app_name}", "__init__.py"))
-    file_paths.append(Path(main_path, "test", "__init__.py"))
+    # file_paths.append(Path(main_path, "src", "__init__.py"))
+    # file_paths.append(Path(main_path, "test", "__init__.py"))
 
     # Create Module by adding __init__.py
     for file_path in file_paths:
