@@ -11,11 +11,11 @@ Do you ever had an awesome ✨ idea that you just wanted to get started with ?
 
 But setting up the project and associated files taking too much of your time 😕.
 
-Then 🍽 `Boilerplate` is just for your.
+Then 🍽 `Boilerplate` is just for you.
 
 `Boilerplate` is a project to create all projects.
 
-It creates 🐍 PyPA compatible folder structure 👍 and adds all the necessary project files like `pyproject.toml`, `setup.cfg` etc.
+It creates 🐍 PyPA compatible folder structure and adds all the necessary project files like `pyproject.toml`, `setup.cfg` etc.
 
 Also it will help you get started with a fully working 👨‍💻 `Dev` & 🧪`Test` Environment with all the necessary python modules to get that extra time ⌛ boost.
 
