@@ -1,3 +1,86 @@
 [build-system]
-requires = ["setuptools"]
+requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
+
+[project]
+name = "boilerplate"
+version = "1.0"
+authors = [
+    {name = "Adarsh Battu", email = "adarsh.battu109@gmail.com"},
+]
+maintainers = [
+    {name = "Adarsh Battu", email = "adarsh.battu109@gmail.com"},
+]
+description = "A Python boilerplate generator that creates PyPA-compatible project structures with preconfigured dev and test environments."
+readme = "README.md"
+license = {text = "BSD 3-Clause License"}
+keywords = ["boilerplate", "setuptools"]
+classifiers = [
+    "Framework :: Custom",
+    "License :: BSD License",
+    "Programming Language :: Python :: 3"
+]
+requires-python = ">=3.10"
+dependencies = [
+    "virtualenv",
+    "inquirerpy"
+]
+urls = {Homepage = "https://github.com/adarshbattu109/boiler-plate"}
+
+[project.scripts]
+boilerplate = "boilerplate:main"
+
+[project.optional-dependencies]
+dev = [
+    "black",
+    "flake8",
+    "pylint",
+    "virtualenv"
+]
+test = [
+    "pytest",
+    "mypy",
+    "flake8",
+    "coverage",
+    "pytest-cov",
+    "pylint",
+    "black"
+]
+
+[project.entry-points."console_scripts"]
+boilerplate = "boilerplate:main"
+
+[tool.setuptools]
+zip-safe = true
+include-package-data = false
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-dir]
+"" = "src"
+
+[tool.flake8]
+exclude = [".tox", "*.egg", "build", "__pycache__", "htmlcov", "venv"]
+select = ["E", "W", "F"]
+ignore = ["E501"]
+show-source = true
+statistics = true
+
+[tool.mypy]
+ignore-missing-imports = true
+
+[tool.pytest.ini_options]
+addopts = "-v --cov=boilerplate --cov-report=html"
+filterwarnings = ["ignore::DeprecationWarning"]
+
+[tool.black]
+line-length = 88
+target-version = ['py310']
+
+[dependency-groups]
+dev = [
+    "black",
+    "flake8",
+    "pylint"
+]
